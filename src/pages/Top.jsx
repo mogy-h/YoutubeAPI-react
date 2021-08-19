@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useEffect, useContext } from "react";
 import Layout from "../components/Layout/Layout";
 import { fetchPopularData } from "../apis/index";
@@ -37,5 +38,16 @@ const Top = () => {
     </Layout>
   );
 };
+=======
+import React from 'react'
+
+const Top = () => {
+  return (
+    <div>
+      
+    </div>
+  )
+}
+>>>>>>> df36e25df4913dc12faff75150928b1d470a9960
 
 export default Top;
