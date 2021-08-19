@@ -1,7 +1,8 @@
 import React from "react";
+import Layout from "../components/Layout/Layout";
 
 const Watch = () => {
-  return <div>watch</div>;
+  return <Layout>watch</Layout>;
 };
 
 export default Watch;
