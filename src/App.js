@@ -6,15 +6,13 @@ import Watch from "./pages/Watch";
 
 function App() {
   return (
-    <div className="App">
-      <Router>
-        <Switch>
-          <Route exact path="/" component={Top} />
-          <Route exact path="search" component={Search} />
-          <Route exact path="watch" component={Watch} />
-        </Switch>
-      </Router>
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path="/" component={Top} />
+        <Route exact path="/search" component={Search} />
+        <Route exact path="/watch" component={Watch} />
+      </Switch>
+    </Router>
   );
 }
 
