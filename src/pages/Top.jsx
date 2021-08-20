@@ -7,12 +7,10 @@ import VideoGridItem from "../components/VideoGridItem/VideoGridItem";
 
 const Top = () => {
   const { globalState, setGlobalState } = useContext(Store);
-  console.log(globalState);
 
   useEffect(() => {
-    fetchPopularData().then( (res) => {
-      console.log("data", res);
-       setGlobalState({ type: "SET_POPULAR", payload: { popular: res.data.items } });
+    fetchPopularData().then((res) => {
+      setGlobalState({ type: "SET_POPULAR", payload: { popular: res.data.items } });
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -20,10 +18,8 @@ const Top = () => {
   return (
     <Layout>
       <VideoGrid>
-
         {globalState.popular &&
           globalState.popular.map((popular) => {
-            console.log(popular.snippet.thumbnails);
             return (
               <VideoGridItem
                 id={popular.id}
