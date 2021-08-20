@@ -19,7 +19,6 @@ const VideoDetail = () => {
         type: "SET_SELECTED",
         payload: { selected: item },
       });
-      console.log(res);
     });
   };
 
@@ -28,7 +27,6 @@ const VideoDetail = () => {
     //eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  console.log(globalState.selected.snippet);
 
   return globalState.selected && globalState.selected.id ? (
     <div className={style.wrap}>
