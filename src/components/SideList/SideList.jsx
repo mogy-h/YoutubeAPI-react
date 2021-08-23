@@ -15,10 +15,13 @@ const SideList = () => {
   };
 
   useEffect(() => {
-    setRelatedVideo(globalState.selected.id);
-    console.log(globalState.selected.id);
+    const unSub = setRelatedVideo(globalState.selected.id);
+
+    return () => {
+      unSub();
+    };
     //eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [globalState.selected]);
+  }, []);
 
   return (
     <div>
@@ -26,8 +29,8 @@ const SideList = () => {
         globalState.related.map((video) => {
           return (
             <SideListItem
-              id={video.id}
-              key={video.id}
+              id={video.id.videoId}
+              key={video.id.videoId}
               src={video.snippet.thumbnails.medium.url}
               title={video.snippet.title}
             />
