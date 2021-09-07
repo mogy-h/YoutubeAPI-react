@@ -7,21 +7,22 @@ import { useLocation } from "react-router";
 import { fetchSelectedData, fetchRelatedData } from "../apis";
 
 const Watch = () => {
-  const { globalState, setGlobalState } = useContext(Store);
+  const { setGlobalState } = useContext(Store);
   const location = useLocation();
   const setVideos = async () => {
     const searchParams = new URLSearchParams(location.search);
     const id = searchParams.get("v");
     if (id) {
-      const result = await Promise.all([fetchSelectedData(id), fetchRelatedData(id)]);
-      console.log(result);
+      const [selected, related] = await Promise.all([fetchSelectedData(id), fetchRelatedData(id)]);
+      setGlobalState({type: "SET_SELECTED", payload: {selected: selected.data.items.shift()}})
+      setGlobalState({type: "SET_RELATED", payload: {related: related.data.items}})
     }
   };
 
   useEffect(() => {
     setVideos()
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, location.search)
+  },[ location.search])
 
   return (
     <Layout>
